@@ -19,4 +19,4 @@
 - Docker
 - Bcrypt
 - JWT
-- dotenv
+- DotEnv

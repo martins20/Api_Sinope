@@ -2,10 +2,12 @@
   Sinope
 </h1>
 <p align="center">
-[!](assets/logo.png)
+<img src="https://github.com/vmnog/sinope/blob/master/assets/logo.png?raw=true" alt="Sinope" width=150/>
 </p>
 
-## 📜 Padronização de código
+### 💸 An expenses and Income money manager app
+
+## 📜 Code standardization
 
 - Commitlint
 - Husky

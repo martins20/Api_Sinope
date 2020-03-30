@@ -2,7 +2,8 @@
   Sinope
 </h1>
 <p align="center">
-<img src="https://github.com/vmnog/sinope/blob/master/assets/logo.png?raw=true" alt="Sinope" width=150/>
+<!-- <img src="https://github.com/vmnog/sinope/blob/master/assets/logo.png?raw=true" alt="Sinope" width=150/> -->
+[!](assets/money.svg)
 </p>
 
 ### 💸 An expenses and Income money manager app

@@ -1,0 +1,65 @@
+module.exports = {
+  env: {
+    es6: true,
+    jest: true,
+    browser: true
+  },
+  extends: ['airbnb', 'prettier', 'prettier/react'],
+  globals: {
+    Atomics: 'readonly',
+    SharedArrayBuffer: 'readonly',
+    __DEV__: true
+  },
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true
+    },
+    ecmaVersion: 2018,
+    sourceType: 'module'
+  },
+  plugins: ['react', 'jsx-a11y', 'import', 'react-hooks', 'prettier'],
+  rules: {
+    'import/no-extraneous-dependencies': 'off',
+    'import/no-duplicates': 'off',
+    'import/extensions': 'off',
+    'import/order': 'off',
+    'import/no-self-import': 'off',
+    'import/no-cycle': 'off',
+    'import/no-useless-path-segments': 'off',
+    'import/no-named-as-default': 'off',
+    'import/no-named-as-default-member': 'off',
+    'import/named': 'off',
+    'prettier/prettier': ['error'],
+    'react/jsx-filename-extension': ['error', { extensions: ['.js', '.jsx'] }],
+    'import/prefer-default-export': 'off',
+    'no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
+    'react/jsx-one-expression-per-line': 'off',
+    'global-require': 'off',
+    'react-native/no-raw-text': 'off',
+    'no-param-reassign': 'off',
+    'no-underscore-dangle': 'off',
+    camelcase: 'off',
+    'no-console': ['error', { allow: ['tron'] }],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'import/no-unresolved': 'off',
+    quotes: [2, 'single', { avoidEscape: true, allowTemplateLiterals: true }]
+  },
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import': {
+        rootPathSuffix: 'src'
+    'no-console': ['error', { allow: ['tron'] }],
+    'react-hooks/rules-of-hooks': 'error',
+    'react-hooks/exhaustive-deps': 'warn',
+    'import/no-unresolved': 'off',
+    quotes: [2, 'single', { avoidEscape: true, allowTemplateLiterals: true }]
+  },
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import': {
+        rootPathSuffix: 'src'
+      }
+    }
+  }
+};

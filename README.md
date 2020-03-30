@@ -4,9 +4,15 @@
   An expenses and Income money manager app
 </p>
 
-
 ## 📜 Code standardization
 
 - Commitlint
 - Husky
 - Commitzen
+- Eslint
+- Prettier
+
+## 💾 Backend
+
+- Sequelize
+-

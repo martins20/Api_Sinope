@@ -4,3 +4,4 @@
 
 - Commitlint
 - Husky
+- Commitzen

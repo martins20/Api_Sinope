@@ -15,4 +15,7 @@
 ## 💾 Backend
 
 - Sequelize
--
+- Postgres
+- Docker
+- Bcrypt
+- JWT

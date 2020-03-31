@@ -3,24 +3,34 @@ import bcrypt from 'bcryptjs';
 
 class User extends Model {
   static init(sequelize) {
-    super.init({
-      name: Sequelize.STRING,
-      email: Sequelize.STRING,
-      password_hash: Sequelize.STRING,
-      password: Sequelize.VIRTUAL,
-      avatar_id: Sequelize.INTEGER
-    },
+    super.init(
+      {
+        name: Sequelize.STRING,
+        email: Sequelize.STRING,
+        password_hash: Sequelize.STRING,
+        password: Sequelize.VIRTUAL,
+        avatar_id: Sequelize.INTEGER,
+      },
       {
         sequelize,
       }
     );
-    
+
     // antes de salvar um usuario pega o password do req.body e gera o valor de password_hash
     this.addHook('beforeSave', async (user) => {
-      if(user.password) user.password_hash = await bcrypt.hash(user.password, 4);  
+      if (user.password)
+        user.password_hash = await bcrypt.hash(user.password, 4);
     });
 
     return this;
+  }
+
+  // metodo que associa o campo avatar_id com o campo id do model File
+  static associate(models) {
+    this.belongsTo(models.File, {
+      foreignKey: 'avatar_id',
+      as: 'avatar',
+    });
   }
 
   // verifica se a senha informada é a senha correta fazendo uma comparação

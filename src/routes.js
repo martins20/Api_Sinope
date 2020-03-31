@@ -2,6 +2,8 @@ import { Router } from 'express';
 
 import UserController from './app/controllers/UserController';
 import SessionController from './app/controllers/SessionController';
+import fileMiddleware from './app/middlewares/file';
+
 
 import authMiddleware from './app/middlewares/auth';
 
@@ -18,5 +20,10 @@ routes.post('/sessions', SessionController.store)
 routes.use(authMiddleware);
 
 routes.put('/users', UserController.update);
+
+//Files
+routes.post('/files', authMiddleware, fileMiddleware, (req, res) => {
+  return res.json({ ok: true });
+});
 
 export default routes;

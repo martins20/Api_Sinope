@@ -65,3 +65,11 @@ $ yarn start
 ```
 $ yarn sequelize db:migrate
 ```
+
+### Insomnia
+
+Import Insomnia settings from root folder.
+
+### Postbird
+
+Use postbird to display database.

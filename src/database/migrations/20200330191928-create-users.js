@@ -22,10 +22,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      avatar_id: {
-        type: Sequelize.INTEGER,
-        allowNull: true
-      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false

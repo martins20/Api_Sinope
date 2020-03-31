@@ -20,3 +20,4 @@
 - Bcrypt
 - JWT
 - DotEnv
+- Multer

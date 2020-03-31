@@ -14,14 +14,14 @@ class App {
 
   middlewares() {
     this.server.use(express.json());
-  }
-
-  routes() {
-    this.server.use(routes);
     this.server.use(
       '/files',
       express.static(path.resolve(__dirname, '..', 'temp', 'uploads'))
     );
+  }
+
+  routes() {
+    this.server.use(routes);
   }
 }
 

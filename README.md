@@ -21,3 +21,21 @@
 - JWT
 - DotEnv
 - Multer
+
+## How to run
+
+### Postgres Docker
+
+<b>Start / Create your <a href="https://hub.docker.com/_/postgres">Docker Postgres</a> Container:</b>
+
+```
+$ docker run --name database -e POSTGRES_PASSWORD=docker -p 5432:5432 -d postgres
+```
+
+### Sequelize Postgres
+
+<b>Run all migrations</b>
+
+```
+$ yarn sequelize db:migrate
+```

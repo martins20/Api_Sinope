@@ -72,4 +72,4 @@ Import Insomnia settings from root folder.
 
 ### Postbird
 
-Use postbird to display database.
+Use postbird to display database

@@ -1,14 +1,21 @@
 import User from '../models/User';
 import File from '../models/File';
+import Expense from '../models/Expense';
 
 class UserController {
   async index(req, res) {
     const users = await User.findAll({
       attributes: ['id', 'name', 'email', 'avatar_id'],
+      order: [['id', 'DESC']],
       include: [
         {
           model: File,
           as: 'avatar',
+        },
+        {
+          model: Expense,
+          as: 'expenses',
+          attributes: ['id', 'title', 'value', 'fixed', 'date'],
         },
       ],
     });
@@ -37,7 +44,7 @@ class UserController {
       avatar_id,
     });
 
-    return res.json(user);
+    return res.json({ id: user.id, name, email, avatar_id });
   }
 
   async update(req, res) {

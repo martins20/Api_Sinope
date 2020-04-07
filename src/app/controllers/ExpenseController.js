@@ -8,36 +8,27 @@ class ExpenseController {
       },
       attributes: ['id', 'title', 'value', 'fixed', 'date'],
     });
-    return res.json(expenses);
+
+    let expensesCounter = 0;
+
+    let totalExpensesValue = 0;
+
+    await expenses.map((expe) => {
+      if (expe) expensesCounter++;
+      if (expe) totalExpensesValue += expe.value;
+    });
+
+    return res.json({ expensesCounter, totalExpensesValue, expenses });
   }
 
   async store(req, res) {
     try {
       const { title, value, fixed, date } = req.body;
       const user_id = req.userId;
-      if (req.body.value <= '')
+      if (req.body.value <= 0)
         return res
           .status(401)
           .json({ error: 'Value needs to be more than 0.' });
-
-      if (!fixed) {
-        const expense = await Expense.create({
-          title,
-          value,
-          fixed: false,
-          date,
-          user_id,
-        });
-
-        return res.json({
-          id: expense.id,
-          title,
-          value,
-          fixed: expense.fixed,
-          user_id,
-          date,
-        });
-      }
 
       const expense = await Expense.create({
         title,
@@ -47,14 +38,7 @@ class ExpenseController {
         user_id,
       });
 
-      return res.json({
-        id: expense.id,
-        title,
-        value,
-        fixed: expense.fixed,
-        user_id,
-        date,
-      });
+      return res.json(expense);
     } catch (err) {
       res.status(400).json(err);
     }
@@ -68,18 +52,19 @@ class ExpenseController {
       const user_id = req.userId;
 
       if (expense.user_id !== user_id) {
-        console.log(expense);
-        return res.status(401).json({ error: 'This expense is not yours.' });
+        return res
+          .status(401)
+          .json({ error: "You're not allowed to do this action." });
       }
 
-      if (req.body.value <= '')
+      if (req.body.value <= 0)
         return res
           .status(401)
           .json({ error: 'Value needs to be more than 0.' });
 
       expense.update(req.body);
 
-      return res.json({ message: 'Expense successfully updated !' });
+      return res.json(expense);
     } catch (err) {
       return res.status(400).json({ error: 'Expense not exists.' });
     }

@@ -10,9 +10,19 @@ class Expense extends Model {
           defaultValue: Sequelize.UUIDV4,
           primaryKey: true,
         },
+        // category_id: {
+        //   type: Sequelize.STRING,
+        //   validate: {
+        //     len: {
+        //       args: [0, 7],
+        //       msg: 'Color should be 0 to 7 characters.',
+        //     },
+        //   },
+        // },
         title: Sequelize.STRING,
         value: Sequelize.FLOAT,
         fixed: Sequelize.BOOLEAN,
+        date: Sequelize.DATE,
       },
       {
         sequelize,

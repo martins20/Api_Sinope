@@ -8,23 +8,34 @@ module.exports = {
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV4,
       },
+      // category_id: {
+      //   type: Sequelize.INTEGER,
+      //   defaultValue: null,
+      //   allowNull: true,
+      //   references: {
+      //     model: 'category',
+      //     key: 'id',
+      //   },
+      //   onDelete: 'SET NULL',
+      //   onUpdate: 'CASCADE',
+      // },
       title: {
         type: Sequelize.STRING,
         allowNull: false,
       },
       value: {
-        type: Sequelize.FLOAT,
+        type: Sequelize.INTEGER,
         allowNull: false,
       },
       fixed: {
         type: Sequelize.BOOLEAN,
         allowNull: true,
-        defaulValue: false,
+        defaultValue: false,
       },
       date: {
         type: Sequelize.DATE,
-        defaultValue: Date.now(),
-        allowNull: false,
+        defaultValue: null,
+        allowNull: true,
       },
       user_id: {
         type: Sequelize.INTEGER,

@@ -73,3 +73,8 @@ Import Insomnia settings from root folder.
 ### Postbird
 
 Use postbird to display database
+
+### Todo
+
+- [ ] metodo de show do user para puxar todas as informacoes possiveis, incluindo avatar do usuario, gastos, rendas etc
+- [ ] incluir   "expensesCounter", "totalExpensesValue" na listagem "show" de usuario

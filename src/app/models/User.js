@@ -31,11 +31,6 @@ class User extends Model {
       foreignKey: 'avatar_id',
       as: 'avatar',
     });
-
-    this.hasMany(models.Expense, {
-      foreignKey: 'user_id',
-      as: 'expenses',
-    });
   }
 
   // verifica se a senha informada é a senha correta fazendo uma comparação

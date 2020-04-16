@@ -1,21 +1,16 @@
 import User from '../models/User';
 import File from '../models/File';
-import Expense from '../models/Expense';
+import Currency from '../models/Currency';
 
 class UserController {
   async index(req, res) {
     const users = await User.findAll({
-      attributes: ['id', 'name', 'email', 'avatar_id'],
+      // attributes: ['id', 'name', 'email', 'avatar_id'],
       order: [['id', 'DESC']],
       include: [
         {
           model: File,
           as: 'avatar',
-        },
-        {
-          model: Expense,
-          as: 'expenses',
-          attributes: ['id', 'title', 'value', 'fixed', 'date'],
         },
       ],
     });

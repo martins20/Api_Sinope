@@ -1,13 +1,13 @@
 import Currency from '../models/Currency';
 
-class ExpenseController {
+class IncomeController {
   async index(req, res) {
     const { userId: user_id } = req;
 
     const expenses = await Currency.findAll({
       where: {
         user_id,
-        expense: true,
+        expense: false,
       },
     });
 
@@ -15,4 +15,4 @@ class ExpenseController {
   }
 }
 
-export default new ExpenseController();
+export default new IncomeController();
